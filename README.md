@@ -4,7 +4,7 @@ Simple library to get config value from a given object, supports nested values.
 
 ### Example
 ```javascript
-import Config from 'js-config';
+import Config from '@docomodigital/js-config';
 
 const configObject = {
     host: 'https://example.com',
