@@ -1,89 +1,147 @@
 import Config from './index';
 
-const config = {
-    foo: {
-        bar: 'test'
+const CONFIG = {
+    VALUE: 100,
+    STRING_VALUE: 'value',
+    OBJECT_VALUE: {
+        OBJ_NESTED: 'nested',
+        OBJ_KEY: 'value'
     },
-    plain: 'plain value',
-    UPPER: 'uppercase',
-    falsy: 0,
-    nestedfalsy: {
-        falsy: 0,
-    },
-    undef: undefined,
-    nulled: null,
-    falseString: 'false'
+    ARRAY_VALUE: [1, 2, 3],
+    FALSE: false,
+    STRING_FALSE: 'false',
+    EMPTY_STRING: '',
+    FALSE_ZERO: 0,
+    FALSE_STRING_ZERO: '0',
+    NULL: null,
+    STRING_NULL: 'null'
 };
 
-describe('Config init', () => {
-    it('init() should set the passed config as config attribute', () => {
-        Config.init({config});
-        expect(Config.config).toBeTruthy();
-    });
+describe('CONFIG VALUE', () => {
 
-    it('init() should set an empty object if no options are passed, upperCase should be false by default', () => {
-        Config.init();
-        expect(Config.config).toEqual({});
-        expect(Config.upperCase).toBe(false);
-    });
-});
-
-test('Config list return all the config object', () => {
-    Config.init({config});
-    expect(Config.list()).toBe(config);
-});
-
-test('Key is searched as uppercase is upperCase flag is true', () => {
-    Config.init({config, upperCase: true});
-    expect(Config.get('upper')).toBe(config.UPPER);
-});
-
-describe('Config return the requested key', () => {
     beforeEach(() => {
-        Config.init({
-            config,
-        })
+        Config.init({ config: CONFIG, upperCase: false });
     });
 
-    it('should return the requested key at root level', () => {
-        expect(Config.get('plain')).toBe(config.plain);
+    it('CONFIG - Simple Config test', () => {
+        expect(true).toEqual(true);
+        expect(Config).toBeDefined();
     });
 
-    it('should return the requested nested key', () => {
-        expect(Config.get('foo.bar')).toBe(config.foo.bar);
+    it('CONFIG - list test', () => {
+        expect(Config.list()).toEqual(CONFIG);
     });
 
-    it('should return an object if the requested key has nested values', () => {
-        const result = Config.get('foo');
-        expect(result).toBe(config.foo);
-        expect(typeof result).toBe('object');
+    it('CONFIG - Get value', () => {
+        expect(Config.get('VALUE')).toEqual(100);
     });
 
-    it('should return undefined if the requested key is not found', () => {
-        expect(Config.get('notFound')).toBe(undefined);
+    it('CONFIG - Get string value', () => {
+        expect(Config.get('STRING_VALUE')).toEqual('value');
+    });
+
+    it('CONFIG - Get object value', () => {
+        expect(Config.get('OBJECT_VALUE')).toEqual({
+            OBJ_NESTED: 'nested',
+            OBJ_KEY: 'value'
+        });
+    });
+
+    it('CONFIG - Get nested object value', () => {
+        expect(Config.get('OBJECT_VALUE.OBJ_NESTED')).toEqual('nested');
+    });
+
+    it('CONFIG - Get array value', () => {
+        expect(Config.get('ARRAY_VALUE')).toEqual([1, 2, 3]);
     });
 });
 
-describe('Config return false if the requested key is falsy', () => {
+describe('CONFIG FALSE VALUE', () => {
+
     beforeEach(() => {
-        Config.init({
-            config,
-        })
+        Config.init({ config: CONFIG, upperCase: false });
     });
 
-    it('should return false if requested key if 0', () => {
-        expect(Config.get('falsy')).toBe(false);
+    it('CONFIG - Get false value', () => {
+        expect(Config.get('FALSE')).toEqual(false);
     });
 
-    it('should return false if requested key is null', () => {
-        expect(Config.get('nulled')).toBe(false);
+    it('CONFIG - Get false string', () => {
+        expect(Config.get('STRING_FALSE')).toEqual(false);
     });
 
-    it('should return false if requested key is "false" as string', () => {
-        expect(Config.get('falseString')).toBe(false);
+    it('CONFIG - Get false value', () => {
+        expect(Config.get('FALSE')).toEqual(false);
     });
 
-    it('should return false if requested nested key is 0', () => {
-        expect(Config.get('nestedfalsy.falsy')).toBe(false);
+    it('CONFIG - Get false string', () => {
+        expect(Config.get('STRING_FALSE')).toEqual(false);
+    });
+
+    it('CONFIG - Get no value', () => {
+        expect(Config.get('EMPTY')).toEqual(undefined);
+    });
+
+    it('CONFIG - Get empty string string', () => {
+        expect(Config.get('EMPTY_STRING')).toEqual(false);
+    });
+
+    it('CONFIG - Get false string zero string', () => {
+        expect(Config.get('FALSE_ZERO')).toEqual(false);
+    });
+
+    it('CONFIG - Get false zero', () => {
+        expect(Config.get('FALSE_STRING_ZERO')).toEqual(false);
+    });
+
+    it('CONFIG - Get false null', () => {
+        expect(Config.get('NULL')).toEqual(false);
+    });
+
+    it('CONFIG - Get false null string', () => {
+        expect(Config.get('STRING_NULL')).toEqual(false);
+    });
+});
+
+describe('CONFIG UPPERCASE - uppercase test', () => {
+
+    beforeEach(() => {
+        Config.init({ config: CONFIG, upperCase: true });
+    });
+
+    it('CONFIG UPPERCASE - Simple Config test', () => {
+        expect(true).toEqual(true);
+        expect(Config).toBeDefined();
+    });
+
+    it('CONFIG UPPERCASE - list test', () => {
+        expect(Config.list()).toEqual(CONFIG);
+    });
+
+    it('CONFIG UPPERCASE - Get value', () => {
+        expect(Config.get('value')).toEqual(100);
+    });
+
+    it('CONFIG UPPERCASE - Get string value', () => {
+        expect(Config.get('string_value')).toEqual('value');
+    });
+
+    it('CONFIG UPPERCASE - Get object value', () => {
+        expect(Config.get('object_value')).toEqual({
+            OBJ_NESTED: 'nested',
+            OBJ_KEY: 'value'
+        });
+    });
+
+    it('CONFIG UPPERCASE - Get nested object value', () => {
+        expect(Config.get('object_value.obj_nested')).toEqual('nested');
+    });
+
+    it('CONFIG UPPERCASE - Get array value', () => {
+        expect(Config.get('array_value')).toEqual([1, 2, 3]);
+    });
+
+    it('CONFIG UPPERCASE - Get uppercase value', () => {
+        expect(Config.get('ARRAY_VALUE')).toEqual([1, 2, 3]);
     });
 });
