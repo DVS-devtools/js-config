@@ -1,8 +1,17 @@
-## js-config
+# js-config
 
 Simple library to get config value from a given object, supports nested values.
 
-### Example
+### Installation
+```bash
+npm install --save @docomodigital/js-config
+```
+Or
+```bash
+yarn add @docomodigital/js-config
+```
+
+### Usage
 ```javascript
 import Config from '@docomodigital/js-config';
 

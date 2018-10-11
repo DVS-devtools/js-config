@@ -1,7 +1,7 @@
 {
-  "name": "js-config",
+  "name": "@docomodigital/js-config",
   "version": "0.1.0",
-  "description": "",
+  "description": "Simple library to get config value from a given object, supports nested values.",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
