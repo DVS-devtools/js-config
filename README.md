@@ -44,22 +44,21 @@ Config.init({
 Config.get('key'); // 'value'
 ```
 
-### Api
 
-#### init(options: {config: any, uppercase: boolean})
-Initialize the Config class
-```javascript
-Config.init({
-    config: configObject,
-    upperCase: false,
-})
+## Installation
+
+### NPM
+```bash
+npm install --save @docomodigital/js-config
 ```
 
-### get(key: string)
-Search the given key (supports dot notation), returns the value if found, undefined if not found, false if the value is a false value `('', 0, '0', null, 'null', false, 'false')`
-```javascript
-Config.get('foo.bar');
-```
+## Documentation
 
-### list()
-Returns the entire config object
+To read documentation, go to:
+
+[http://docomodigital.github.io/js-config/latest](http://docomodigital.github.io/js-config/latest)
+
+or run the following command inside the js-config folder: 
+```bash
+npm run doc:open
+```
