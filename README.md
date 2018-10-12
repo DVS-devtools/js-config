@@ -1,5 +1,7 @@
 # js-config
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/docomodigital/js-config.svg)](https://greenkeeper.io/)
+
 Simple library to get config value from a given object, supports nested values.
 
 ## Usage
