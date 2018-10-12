@@ -1,5 +1,8 @@
 # js-config
 
+[![Build Status](https://travis-ci.com/docomodigital/js-config.svg?branch=master)](https://travis-ci.com/docomodigital/js-config)
+[![Coverage Status](https://coveralls.io/repos/github/docomodigital/js-config/badge.svg?branch=master)](https://coveralls.io/github/docomodigital/js-config?branch=master)
+[![npm version](https://badge.fury.io/js/%40docomodigital%2Fjs-config.svg)](https://badge.fury.io/js/%40docomodigital%2Fjs-config)
 [![Greenkeeper badge](https://badges.greenkeeper.io/docomodigital/js-config.svg)](https://greenkeeper.io/)
 
 Simple library to get config value from a given object, supports nested values.
