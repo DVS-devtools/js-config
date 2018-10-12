@@ -2,16 +2,7 @@
 
 Simple library to get config value from a given object, supports nested values.
 
-### Installation
-```bash
-npm install --save @docomodigital/js-config
-```
-Or
-```bash
-yarn add @docomodigital/js-config
-```
-
-### Usage
+## Usage
 ```javascript
 import Config from '@docomodigital/js-config';
 
