@@ -17,6 +17,20 @@ const CONFIG = {
     STRING_NULL: 'null'
 };
 
+describe('CONFIG INIT', () => {
+    it('CONFIG - null options', () => {
+        Config.init(null);
+        expect(Config.config).toBeUndefined();
+        expect(Config.upperCase).toBeUndefined();
+    });
+
+    it('CONFIG - no options', () => {
+        Config.init();
+        expect(Config.config).toEqual({});
+        expect(Config.upperCase).toBe(false);
+    });
+});
+
 describe('CONFIG VALUE', () => {
 
     beforeEach(() => {
