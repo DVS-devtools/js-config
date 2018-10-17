@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: commonPaths.outputPath,
         filename: 'index.js',
-        library: 'YourLibrary',
+        library: 'JsConfig',
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
